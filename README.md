@@ -17,7 +17,7 @@ mixtures of polynomial*”. The organisation is in the following folders:
 
 ## Packages needed for running the code
 
-The R packages needed for running the toy example could be downloaded
+The R packages needed for running the code could be downloaded
 using Cran Repository. Using the following R commands to install the
 packages:
 
@@ -33,7 +33,10 @@ In this section, the description of the main scripts to build TAN models.
 - mutualInformation.R: a R file where the functions for computing the mutual information
   using MoP distributions are implemented.
 - fitTAN.R: a R file where the functions for building Mop--TAN models.
-- fitTANGauss.R: a R file where the functions for building 
+- fitTANGauss.R: a R file where the functions for building CG--TAN models, including the
+  mutual information between variables.
+
+
 - fitTANGauss.R: R file where the code for learning conditional Gaussian
   TAN.
 - example.R: A R file with a toy example for fit a conditional Gaussian
