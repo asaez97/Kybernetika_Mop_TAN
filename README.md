@@ -4,8 +4,36 @@ polynomials
 
 This bundle contains the manuscript submitted to the Kybernetika and
 entitled “*Structural learning of tree aumented naive Bayes using
-mixtures of polynomial*”. The organisation is the following:
+mixtures of polynomial*”. The organisation is in the following folders:
+- main_functions: folder where the script for the main functions.
+  Functions to compute the mutual information between variables using
+  Mixtures of Polynomials and Conditional Linear Gaussian model.
+- experimental_tubeline: folder where the scripts for experimentals are
+  incluided.
+- Datasets: folder where files .RDa with data for the experiments are incluided.
+  datos.RDa contains continuous and discrete variables, while datosDisc.RDa
+  contains only discrete variables. In this file, the continuous variables are
+  discretized.
 
+## Packages needed for running the code
+
+The R packages needed for running the toy example could be downloaded
+using Cran Repository. Using the following R commands to install the
+packages:
+
+``` r
+# install.packages("bnlearn")
+# install.packages("MASS")
+# install.packages("infotheo")
+# install.packages("MoTBFs")
+```
+## Main_functions
+In this section, the description of the main scripts to build TAN models.
+
+- mutualInformation.R: a R file where the functions for computing the mutual information
+  using MoP distributions are implemented.
+- fitTAN.R: a R file where the functions for building Mop--TAN models.
+- fitTANGauss.R: a R file where the functions for building 
 - fitTANGauss.R: R file where the code for learning conditional Gaussian
   TAN.
 - example.R: A R file with a toy example for fit a conditional Gaussian
@@ -27,17 +55,6 @@ has the following auxiliary functions:
   considering the conditional Gaussian assumptions given a mutual
   information matrix computed by `MI_tan_gauss`.
 
-## Packages needed for running the code
-
-The R packages needed for running the toy example could be downloaded
-using Cran Repository. Using the following R commands to install the
-packages:
-
-``` r
-# install.packages("bnlearn")
-# install.packages("MASS")
-# install.packages("infotheo")
-```
 
 ## Data
 
