@@ -169,7 +169,7 @@ tan
 library(bnlearn)
 graphviz.plot(MoTBFs::getDAG(tan))
 ```
-
+![](vignettes/tan_1.png)<!-- -->
 #### Choosing the root of TAN
 
 The function `fit_tan` allows to introduce the MI matrix and the root
@@ -178,10 +178,27 @@ feature variable with the link with highest value in the MI matrix.
 
 ``` r
 MI = mutual_information_tan(data,target="C")
-tan2 = fit_tan(target = "C",data = data,root = "Z2", mutualInfoCond = MI$MI)
-tan2
 graphviz.plot(MoTBFs::getDAG(tan2))
 ```
+
+    ## 2026-09-21 12:56:50.490741 INFO::Learning Z1|C:Z2
+    ## 2026-09-21 12:56:50.762041 INFO::Learning Z1|C:Y1
+    ## 2026-09-21 12:56:50.873882 INFO::Learning Z1|C:Y2
+    ## 2026-09-21 12:56:51.015744 INFO::Learning Z2|C:Z1
+    ## 2026-09-21 12:56:51.332818 INFO::Learning Z2|C:Y1
+    ## 2026-09-21 12:56:51.530056 INFO::Learning Z2|C:Y2
+    ## 2026-09-21 12:56:51.720922 INFO::Learning Y1|C:Z1
+    ## 2026-09-21 12:56:51.733208 INFO::Learning Y1|C:Z2
+    ## 2026-09-21 12:56:51.755617 INFO::Learning Y1|C:Y2
+    ## 2026-09-21 12:56:51.76321 INFO::Learning Y2|C:Z1
+    ## 2026-09-21 12:56:51.782172 INFO::Learning Y2|C:Z2
+    ## 2026-09-21 12:56:51.801513 INFO::Learning Y2|C:Y1
+
+``` r
+tan2 = fit_tan(target = "C",data = data,root = "Z2", mutualInfoCond = MI$MI)
+graphviz.plot(MoTBFs::getDAG(tan2))
+```
+![](vignettes/tan_2.png)<!-- -->
 ### Computing conditional Gaussian TAN
 
 First, we source the *fitTANGauss.R* file to load the necessary
