@@ -14,6 +14,9 @@ mixtures of polynomial*”. The organisation is in the following folders:
   datos.RDa contains continuous and discrete variables, while datosDisc.RDa
   contains only discrete variables. In this file, the continuous variables are
   discretized.
+We also included the following files:
+- example.R: A R file with a toy example for fit TAN models.
+- data.Rda: A R data file with the toy dataset.
 
 ## Packages needed for running the code
 
@@ -53,9 +56,6 @@ In this section, the description of the main scripts to build TAN models.
   - `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
     information of two predicted variables given the class using
     conditional Gaussian assumptions.
-- example.R: A R file with a toy example for fit a conditional Gaussian
-  TAN model.
-- data.Rda: A R data file with the toy dataset.
 
 
 ## Data
