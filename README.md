@@ -14,6 +14,7 @@ mixtures of polynomial*”. The organisation is in the following folders:
   datos.RDa contains continuous and discrete variables, while datosDisc.RDa
   contains only discrete variables. In this file, the continuous variables are
   discretized.
+
 We also included the following files:
 - example.R: A R file with a toy example for fit TAN models.
 - data.Rda: A R data file with the toy dataset.
