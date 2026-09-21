@@ -44,8 +44,8 @@ In this section, the description of the main scripts to build TAN models.
   mutual information between variables.
   - `fit_tan_g`function. It computes the structural and the parameters of a TAN model
     given a data.frame considering the conditional Gaussian assumptions.
-  - `fit_root`. It computes a possible root for TAN model.
-  - `fit_tan_structure`.It computes the structure of a TAN model
+  - `fit_root_g`. It computes a possible root for TAN model.
+  - `fit_tan_structure_g`.It computes the structure of a TAN model
     considering the conditional Gaussian assumptions given a mutual
     information matrix computed by `MI_tan_gauss`.
   - `MI_tan_gauss`. It computes the mutual information between each pair
