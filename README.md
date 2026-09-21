@@ -5,10 +5,10 @@ polynomials
 This bundle contains the manuscript submitted to the Kybernetika and
 entitled “*Structural learning of tree aumented naive Bayes using
 mixtures of polynomial*”. The organisation is in the following folders:
-- main_functions: folder where the script for the main functions.
+- Core_functions: folder where the script for the main functions.
   Functions to compute the mutual information between variables using
   Mixtures of Polynomials and Conditional Linear Gaussian model.
-- experimental_tubeline: folder where the scripts for experimentals are
+- experimental_pipeline: folder where the scripts for experimentals are
   incluided.
 - Datasets: folder where files .RDa with data for the experiments are incluided.
   datos.RDa contains continuous and discrete variables, while datosDisc.RDa
@@ -27,36 +27,35 @@ packages:
 # install.packages("infotheo")
 # install.packages("MoTBFs")
 ```
-## Main_functions
+## Core_functions
 In this section, the description of the main scripts to build TAN models.
 
 - mutualInformation.R: a R file where the functions for computing the mutual information
   using MoP distributions are implemented.
-- fitTAN.R: a R file where the functions for building Mop--TAN models.
+- fitTAN.R: a R file where the functions for building Mop--TAN models. This scripts
+  including the following functions:https://github.com/asaez97/Kybernetika_Mop_TAN/blob/Dev/README.md
+  - `fit_tan`. It computes the structural and the parameters of a TAN model
+    given a data.frame considering the Mops.
+  - `fit_tan_structure`. It computes the structure of a TAN model given a weight matrix.
+  - `mutual_information_tan`. It computes the mutual information between each pair of
+    estructure given the class variable.
+  - `fit_root`. It computes a possible root for TAN model.
 - fitTANGauss.R: a R file where the functions for building CG--TAN models, including the
   mutual information between variables.
-
-
-- fitTANGauss.R: R file where the code for learning conditional Gaussian
-  TAN.
+  - `fit_tan_g`function. It computes the structural and the parameters of a TAN model
+    given a data.frame considering the conditional Gaussian assumptions.
+  - `fit_root`. It computes a possible root for TAN model.
+  - `fit_tan_structure`.It computes the structure of a TAN model
+    considering the conditional Gaussian assumptions given a mutual
+    information matrix computed by `MI_tan_gauss`.
+  - `MI_tan_gauss`. It computes the mutual information between each pair
+    of feature variables given the class variable.
+  - `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
+    information of two predicted variables given the class using
+    conditional Gaussian assumptions.
 - example.R: A R file with a toy example for fit a conditional Gaussian
   TAN model.
 - data.Rda: A R data file with the toy dataset.
-
-The *fitTANGauss.R* file contains the `fit_tan_g`function. It computes
-the structural and the parameters of a TAN model given a data.frame
-considering the conditional Gaussian assumptions. In addition, this file
-has the following auxiliary functions:
-
-- `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
-  information of two predicted variables given the class using
-  conditional Gaussian assumptions.
-- `MI_tan_gauss`. It computes the mutual information between each pair
-  of feature variables given the class variable.
-- `fit_root`. It computes a possible root for TAN model.
-- `fit_tan_structure`.It computes the structure of a TAN model
-  considering the conditional Gaussian assumptions given a mutual
-  information matrix computed by `MI_tan_gauss`.
 
 
 ## Data
