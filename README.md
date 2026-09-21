@@ -33,7 +33,7 @@ In this section, the description of the main scripts to build TAN models.
 - mutualInformation.R: a R file where the functions for computing the mutual information
   using MoP distributions are implemented.
 - fitTAN.R: a R file where the functions for building Mop--TAN models. This scripts
-  including the following functions:https://github.com/asaez97/Kybernetika_Mop_TAN/blob/Dev/README.md
+  including the following functions:
   - `fit_tan`. It computes the structural and the parameters of a TAN model
     given a data.frame considering the Mops.
   - `fit_tan_structure`. It computes the structure of a TAN model given a weight matrix.
