@@ -5,7 +5,8 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 # install.packages("bnlearn")
 # install.packages("MASS")
 # install.packages("infotheo")
-library(bnlearn)
+# install.packages("MoTBFs")
+# install.packages("logging")
 # Generate data------------------
 
 # Class variable
@@ -45,8 +46,29 @@ data$Y2[C=="1"] = ifelse(data_1[,4]>1,"1","0")
 data$Y2 = as.factor(data$Y2)
 
 # Save the dataset
-save(data,file = "data.Rda")
-# Conditional mutual information-------------
+save(data,file = "toy_data.Rda")
+
+# MoP-TAN-------------------------------
+# Source fitTAN.R file
+source("fitTAN.R")
+source("mutualInformation.R")
+# MoTBFs R package is required for parameter learning process
+library(MoTBFs)
+library(logging)
+tan = fit_tan(target = "C",data = data)
+tan
+# Plot the DAG using the graphviz.plot() from bnlearn package
+library(bnlearn)
+graphviz.plot(MoTBFs::getDAG(tan))
+
+# Change the root
+MI = mutual_information_tan(data,target="C")
+tan2 = fit_tan(target = "C",data = data,root = "Z2", mutualInfoCond = MI$MI)
+tan2
+graphviz.plot(MoTBFs::getDAG(tan2))
+
+
+# Conditional linear Gaussian-------------
 source("fitTANGauss.R")
 MI = MI_tan_gauss(data = data,target = "C")
 MI
