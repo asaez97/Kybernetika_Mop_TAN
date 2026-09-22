@@ -10,14 +10,14 @@ mixtures of polynomial*”. The organisation is in the following folders:
   Mixtures of Polynomials and Conditional Linear Gaussian model.
 - experimental_pipeline: folder where the scripts for experimentals are
   incluided.
-- Datasets: folder where files .RDa with data for the experiments are incluided.
-  datos.RDa contains continuous and discrete variables, while datosDisc.RDa
-  contains only discrete variables. In this file, the continuous variables are
-  discretized.
+- Datasets: folder where files .RDa with data for reproduce the experiments
+  of the paper are incluided. datos.RDa contains continuous and discrete
+  variables, while datosDisc.RDa contains only discrete variables. In this
+  file, the continuous variables are discretized.
 
 We also included the following files:
 - example.R: A R file with a toy example for fit TAN models.
-- data.Rda: A R data file with the toy dataset.
+- toy_data.Rda: A R data file with the toy dataset.
 
 ## Packages needed for running the code
 
