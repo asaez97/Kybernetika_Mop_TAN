@@ -12,7 +12,7 @@ mixtures of polynomial*”. The organisation is in the following folders:
   incluided.
 - Datasets: folder where files .RDa with data for reproduce the experiments
   of the paper are incluided. datos.RDa contains continuous and discrete
-  variables, while datosDisc.RDa contains only discrete variables. In this
+  variables, while datosD.RDa contains only discrete variables. In this
   file, the continuous variables are discretized.
 
 We also included the following files:
