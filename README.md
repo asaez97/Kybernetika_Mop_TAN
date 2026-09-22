@@ -70,7 +70,7 @@ conditional Gaussian assumptions. The dataset contains 100 instances.
 The following code load the toy problem dataset to the environment.
 
 ``` r
-load("data.Rda")
+load("toy_data.Rda")
 ```
 ### Computing MOP--TAN
 First, we source the *fitTAN.R* and *mutualInformation.R* files to load the 
