@@ -10,14 +10,28 @@ mixtures of polynomial*”. The organisation is in the following folders:
   Mixtures of Polynomials and Conditional Linear Gaussian model.
 - experimental_pipeline: folder where the scripts for experimentals are
   incluided.
-- Datasets: folder where files .RDa with data for reproduce the experiments
-  of the paper are incluided. datos.RDa contains continuous and discrete
-  variables, while datosD.RDa contains only discrete variables. In this
-  file, the continuous variables are discretized.
 
 We also included the following files:
 - example.R: A R file with a toy example for fit TAN models.
 - toy_data.Rda: A R data file with the toy dataset.
+
+
+## Experimental pipeline
+
+The Experimental pipeline folder includes all necessary scripts in
+order to compute the experimental results that have been incluided
+in the manuscript. To do it, we have considered four folders: 'DataSets',
+'Preprocessing', *MoP_models*, *Gauss_models* and *Discrete_models*.
+Next, a short description of each folder is shown.
+
+- DataSets: incluides the data files *datos.RDa* and *datosD.RDa*. This
+  files correspond to the original data base and discrete data base for
+  experiments.
+- Preprocessing: A folder which includes the following R files:
+  - *BalancedDataSets.R*. Code for generate the balanced training data datasets,
+    continuous and discrete data and discrete data. This R file generates the
+    data for the models with balanced training sets.
+    
 
 ## Packages needed for running the code
 
