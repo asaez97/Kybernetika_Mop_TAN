@@ -2,37 +2,22 @@ Structural learning of tree aumented naive Bayes using mixtures of
 polynomials
 ================
 
-This bundle contains the manuscript submitted to the Kybernetika and
-entitled “*Structural learning of tree aumented naive Bayes using
-mixtures of polynomial*”. The organisation is in the following folders:
-- fitTANGauss.R: a R file where the functions for building CG--TAN models, including the
-  mutual information between variables.
-  - `fit_tan_g`function. It computes the structural and the parameters of a TAN model
-    given a data.frame considering the conditional Gaussian assumptions.
-  - `fit_root_g`. It computes a possible root for TAN model.
-  - `fit_tan_structure_g`.It computes the structure of a TAN model
-    considering the conditional Gaussian assumptions given a mutual
-    information matrix computed by `MI_tan_gauss`.
-  - `MI_tan_gauss`. It computes the mutual information between each pair
-    of feature variables given the class variable.
-  - `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
-    information of two predicted variables given the class using
-    conditional Gaussian assumptions.
-- experimental_pipeline: folder where the scripts for experimentals are
-  incluided.
-- example.R: A R file with a toy example for fit TAN models.
-- toy_data.Rda: A R data file with the toy dataset.
+This bundle contains the manuscript submitted to Kybernetika and entitled “Structural learning of tree-augmented naive Bayes using mixtures of polynomials”. The contents are organized as follows:
+- *fitTANGauss.R*: An R file containing the functions for building CG-TAN models, including the calculation of mutual information between variables.
+  - `fit_tan_g`: Computes the structure and parameters of a TAN model given a data.frame under conditional Gaussian assumptions.
+  - `fit_root_g`: Computes a possible root for a TAN model.
+  - `fit_tan_structure_g`: Computes the structure of a TAN model under conditional Gaussian assumptions, given a mutual information matrix computed by `MI_tan_gauss`.
+  - `MI_tan_gauss`: Computes the mutual information between each pair of feature variables given the class variable.
+  - `cond_mi_cont` and `cond_mi_cont_disc`: Compute the mutual information of two predictor variables given the class using conditional Gaussian assumptions.
+- *experimental_pipeline*: A folder containing the scripts for the experiments.
+- *example.R*: An R file with a toy example for fitting TAN models.
+- *toy_data.Rdata*: An R data file containing the toy dataset.
 
 
 ## Experimental pipeline
 
-The Experimental pipeline folder includes all necessary scripts in
-order to compute the experimental results that have been incluided
-in the manuscript. To do it, we have considered four folders: 'DataSets',
-'Preprocessing', *MoP_models*, *Gauss_models* and *Discrete_models*.
-Next, a short description of each folder is shown.
-
-- DataSets: incluides the data files *datos.RData* and *datosD.RData*. This
+The experimental_pipeline folder includes all necessary scripts in order to compute the experimental results that have been included in the manuscript. To do so, it contains four folders: *DataSets*, *Preprocessing*, *MoP_models*, *CG_models*, and *Discrete_models*. Below, a short description of each folder is shown.
+- DataSets: includes the data files *datos.RData* and *datosD.RData*. This
   files correspond to the original data base and discrete data base for
   experiments.
 - Preprocessing: A folder which includes the following R files, which have to be run
@@ -44,11 +29,20 @@ Next, a short description of each folder is shown.
 - Discrete_Models. A folder with the R scripts to generate all discrete models of the manuscript.
 - CG_Models. A folder with the R scripts to generate all conditional linear Gaussian models of the manuscript.
 - MoP_Models. Folder with the R scripts to generate all MoP models of the manuscript.
+- DataSets: Includes the data files datos.RData and datosD.RData. These files correspond to the original database and discrete database for the experiments.
+- Preprocessing: A folder that includes the following R files, which have to be run in this order:
+  1.  *folds_CV.R*: R script with the code to generate the 10 folds for cross-validation.
+  2.  *BalancedDataSets.R*: Code to generate the balanced training datasets for continuous and discrete data. This R file generates the data for the models with balanced training sets.
+  3.  *MIDisc.R*, *MIGauss.R*, and *MIMoP.R*: R files with the code to compute the MI matrix between feature variables and the class variable.
+  4.  *OrdenVariables.R*: R file where the predictor variables are sorted in decreasing order using the mutual information between each one and the class variable.
+- Discrete_Models: A folder with the R scripts to generate all the discrete models in the manuscript.
+- CG_Models: A folder with the R scripts to generate all the conditional linear Gaussian models in the manuscript.
+- MoP_Models: A folder with the R scripts to generate all the MoP models in the manuscript.
 
 ## Packages needed for running the code
 
 The R packages needed for running the code could be downloaded
-using Cran Repository. Using the following R commands to install the
+using CRAN Repository. Using the following R commands to install the
 packages:
 
 ``` r
