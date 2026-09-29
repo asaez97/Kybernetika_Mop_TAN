@@ -17,18 +17,6 @@ This bundle contains the manuscript submitted to Kybernetika and entitled “Str
 ## Experimental pipeline
 
 The experimental_pipeline folder includes all necessary scripts in order to compute the experimental results that have been included in the manuscript. To do so, it contains four folders: *DataSets*, *Preprocessing*, *MoP_models*, *CG_models*, and *Discrete_models*. Below, a short description of each folder is shown.
-- DataSets: includes the data files *datos.RData* and *datosD.RData*. This
-  files correspond to the original data base and discrete data base for
-  experiments.
-- Preprocessing: A folder which includes the following R files, which have to be run
-  in this order.
-  1. *folds_CV.R*. R script with the code to generate the 10 folds for cross validation.
-  2. *BalancedDataSets.R*. Code for generate the balanced training data datasets, continuous and discrete data and discrete data. This R file generates the data for the models with balanced training sets.
-  3. *MIDisc.R*, *MIGauss.R* and *MIMoP.R*. R files with the code for compute MI matrix between features variables and the class variable.
-  4. *OrdenVariables.R*. R file where the predicted variables are sorted in decreasing order using the mutual information between each one and the class variable.
-- Discrete_Models. A folder with the R scripts to generate all discrete models of the manuscript.
-- CG_Models. A folder with the R scripts to generate all conditional linear Gaussian models of the manuscript.
-- MoP_Models. Folder with the R scripts to generate all MoP models of the manuscript.
 - DataSets: Includes the data files datos.RData and datosD.RData. These files correspond to the original database and discrete database for the experiments.
 - Preprocessing: A folder that includes the following R files, which have to be run in this order:
   1.  *folds_CV.R*: R script with the code to generate the 10 folds for cross-validation.
@@ -52,33 +40,6 @@ packages:
 # install.packages("MoTBFs")
 # install.packages("logging")
 ```
-## Core_functions
-In this section, the description of the main scripts to build TAN models.
-
-- mutualInformation.R: a R file where the functions for computing the mutual information
-  using MoP distributions are implemented.
-- fitTAN.R: a R file where the functions for building Mop--TAN models. This scripts
-  including the following functions:
-  - `fit_tan`. It computes the structural and the parameters of a TAN model
-    given a data.frame considering the Mops.
-  - `fit_tan_structure`. It computes the structure of a TAN model given a weight matrix.
-  - `mutual_information_tan`. It computes the mutual information between each pair of
-    estructure given the class variable.
-  - `fit_root`. It computes a possible root for TAN model.
-- fitTANGauss.R: a R file where the functions for building CG--TAN models, including the
-  mutual information between variables.
-  - `fit_tan_g`function. It computes the structural and the parameters of a TAN model
-    given a data.frame considering the conditional Gaussian assumptions.
-  - `fit_root_g`. It computes a possible root for TAN model.
-  - `fit_tan_structure_g`.It computes the structure of a TAN model
-    considering the conditional Gaussian assumptions given a mutual
-    information matrix computed by `MI_tan_gauss`.
-  - `MI_tan_gauss`. It computes the mutual information between each pair
-    of feature variables given the class variable.
-  - `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
-    information of two predicted variables given the class using
-    conditional Gaussian assumptions.
-
 
 ## Toy Example
 
