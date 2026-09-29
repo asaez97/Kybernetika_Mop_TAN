@@ -49,9 +49,6 @@ data$Y2 = as.factor(data$Y2)
 save(data,file = "toy_data.Rda")
 
 # MoP-TAN-------------------------------
-# Source fitTAN.R file
-source("fitTAN.R")
-source("mutualInformation.R")
 # MoTBFs R package is required for parameter learning process
 library(MoTBFs)
 library(logging)
