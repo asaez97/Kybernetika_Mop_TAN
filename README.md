@@ -5,13 +5,21 @@ polynomials
 This bundle contains the manuscript submitted to the Kybernetika and
 entitled “*Structural learning of tree aumented naive Bayes using
 mixtures of polynomial*”. The organisation is in the following folders:
-- Core_functions: folder where the script for the main functions.
-  Functions to compute the mutual information between variables using
-  Mixtures of Polynomials and Conditional Linear Gaussian model.
+- fitTANGauss.R: a R file where the functions for building CG--TAN models, including the
+  mutual information between variables.
+  - `fit_tan_g`function. It computes the structural and the parameters of a TAN model
+    given a data.frame considering the conditional Gaussian assumptions.
+  - `fit_root_g`. It computes a possible root for TAN model.
+  - `fit_tan_structure_g`.It computes the structure of a TAN model
+    considering the conditional Gaussian assumptions given a mutual
+    information matrix computed by `MI_tan_gauss`.
+  - `MI_tan_gauss`. It computes the mutual information between each pair
+    of feature variables given the class variable.
+  - `cond_mi_cont` and `cond_mi_cont_disc`. They compute the mutual
+    information of two predicted variables given the class using
+    conditional Gaussian assumptions.
 - experimental_pipeline: folder where the scripts for experimentals are
   incluided.
-
-We also included the following files:
 - example.R: A R file with a toy example for fit TAN models.
 - toy_data.Rda: A R data file with the toy dataset.
 
@@ -24,18 +32,18 @@ in the manuscript. To do it, we have considered four folders: 'DataSets',
 'Preprocessing', *MoP_models*, *Gauss_models* and *Discrete_models*.
 Next, a short description of each folder is shown.
 
-- DataSets: incluides the data files *datos.RDa* and *datosD.RDa*. This
+- DataSets: incluides the data files *datos.RData* and *datosD.RData*. This
   files correspond to the original data base and discrete data base for
   experiments.
 - Preprocessing: A folder which includes the following R files, which have to be run
   in this order.
-  
   1. *folds_CV.R*. R script with the code to generate the 10 folds for cross validation.
   2. *BalancedDataSets.R*. Code for generate the balanced training data datasets, continuous and discrete data and discrete data. This R file generates the data for the models with balanced training sets.
   3. *MIDisc.R*, *MIGauss.R* and *MIMoP.R*. R files with the code for compute MI matrix between features variables and the class variable.
-  4. **
-
-    
+  4. *OrdenVariables.R*. R file where the predicted variables are sorted in decreasing order using the mutual information between each one and the class variable.
+- Discrete_Models. A folder with the R scripts to generate all discrete models of the manuscript.
+- CG_Models. A folder with the R scripts to generate all conditional linear Gaussian models of the manuscript.
+- MoP_Models. Folder with the R scripts to generate all MoP models of the manuscript.
 
 ## Packages needed for running the code
 
@@ -91,17 +99,7 @@ The following code load the toy problem dataset to the environment.
 load("toy_data.Rda")
 ```
 ### Computing MOP--TAN
-First, we source the *fitTAN.R* and *mutualInformation.R* files to load the 
-necessary functions to compute the MOP--TAN model.
-``` r
-# Source fitTANGauss.R file
-source("fitTAN.R")
-source("mutualInformation.R")
-```
-
-Now, the MoP TAN model can be computed using
-`fit_tan`. This function requires *MoTBFs* package for the parameter
-learning.
+First, we have to use *MoTBFs* and *logging* packages from CRAN repository. The MoP TAN model can be computed using `fit_tan` function.
 
 ``` r
 # MoTBFs R package is required for parameter learning process
@@ -196,7 +194,6 @@ feature variable with the link with highest value in the MI matrix.
 
 ``` r
 MI = mutual_information_tan(data,target="C")
-graphviz.plot(MoTBFs::getDAG(tan2))
 ```
 
     ## 2026-09-21 12:56:50.490741 INFO::Learning Z1|C:Z2
