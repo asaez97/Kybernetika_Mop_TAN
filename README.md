@@ -27,10 +27,14 @@ Next, a short description of each folder is shown.
 - DataSets: incluides the data files *datos.RDa* and *datosD.RDa*. This
   files correspond to the original data base and discrete data base for
   experiments.
-- Preprocessing: A folder which includes the following R files:
-  - *BalancedDataSets.R*. Code for generate the balanced training data datasets,
-    continuous and discrete data and discrete data. This R file generates the
-    data for the models with balanced training sets.
+- Preprocessing: A folder which includes the following R files, which have to be run
+  in this order.
+  
+  1. *folds_CV.R*. R script with the code to generate the 10 folds for cross validation.
+  2. *BalancedDataSets.R*. Code for generate the balanced training data datasets, continuous and discrete data and discrete data. This R file generates the data for the models with balanced training sets.
+  3. *MIDisc.R*, *MIGauss.R* and *MIMoP.R*. R files with the code for compute MI matrix between features variables and the class variable.
+  4. **
+
     
 
 ## Packages needed for running the code
