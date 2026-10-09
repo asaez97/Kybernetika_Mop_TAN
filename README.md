@@ -37,7 +37,7 @@ packages:
 # install.packages("bnlearn")
 # install.packages("MASS")
 # install.packages("infotheo")
-# install.packages("MoTBFs")
+# install.packages("MoTBFs")# Requires 2.0.1 version
 # install.packages("logging")
 ```
 
@@ -58,7 +58,7 @@ First, we have to use *MoTBFs* and *logging* packages from CRAN repository. The 
 
 ``` r
 # MoTBFs R package is required for parameter learning process
-library(MoTBFs)
+library(MoTBFs)# Requires 2.0.1 version
 library(logging)
 tan = fit_tan(target = "C",data = data)
 ```
